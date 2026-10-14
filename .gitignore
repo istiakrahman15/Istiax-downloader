@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Secrets - never commit these
+.env
+.env.*
+*.key
+*.pem
+
+# Temp / downloaded media
+istiax_jobs/
+downloads/
+tmp/
+*.mp4
+*.mp3
+*.m4a
+*.webm
+*.part
+*.ytdl
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/

@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: istiax-downloader-api
+    runtime: python
+    plan: free
+    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT --workers 1 --threads 4 --timeout 180
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.3
+      - key: API_KEY
+        generateValue: true
+      - key: MAX_FILESIZE_MB
+        value: "50"
+      - key: MAX_PROCESS_SECONDS
+        value: "90"
+      - key: MAX_HEIGHT
+        value: "720"
+      - key: MAX_CONCURRENT_JOBS
+        value: "1"
+      - key: ALLOW_GENERIC_EXTRACTOR
+        value: "false"
